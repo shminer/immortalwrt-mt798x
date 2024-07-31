@@ -137,25 +137,25 @@
 &cpu_thermal {
 	trips {
 		cpu_trip_critical: critical {
-			temperature = <65000>;
+			temperature = <95000>;
 			hysteresis = <2000>;
 			type = "critical";
 		};
 
 		cpu_trip_hot: hot {
-			temperature = <55000>;
+			temperature = <40000>;
 			hysteresis = <2000>;
 			type = "hot";
 		};
 
 		cpu_trip_active: active {
-			temperature = <40000>;
+			temperature = <35000>;
 			hysteresis = <2000>;
 			type = "active";
 		};
 
 		cpu_trip_passive: passive {
-			temperature = <30000>;
+			temperature = <20000>;
 			hysteresis = <2000>;
 			type = "passive";
 		};
@@ -321,13 +321,6 @@
 
 &pio {
 
-	/* GPIO 11 NGFF_GNSS_OFF. output-high: enable, output-low: disable */
-	gnss_off {
-		gpio-hog;
-		gpios = <11 GPIO_ACTIVE_HIGH>;
-		output-high;
-	};
-
         mmc0_pins_default: mmc0-pins-50-to-61-default {
                 mux {
                         function = "flash";
@@ -436,4 +429,8 @@
 			drive-strength = <MTK_DRIVE_4mA>;
 		};
 	};
+};
+
+&xhci {
+	status = "okay";
 };
